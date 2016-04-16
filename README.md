@@ -9,6 +9,30 @@
 ---
 
 
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| **`data`** | _Array_ | List of data items |
+| **`renderRow`** | _Function_ | Renders a single row |
+| **`rowHeight`** | _Number_ | Static height of a row |
+| **`sync`** | _Boolean_ | If `true`, forces synchronous rendering |
+
+
+```js
+<VirtualList
+    data={['a', 'b', 'c']}
+    renderRow={ row => <div>{row}</div> }
+    rowHeight={22}
+    sync
+/>
+```
+
+
+
+---
+
+
 ### Simple Example
 
 [**View this example on JSFiddle**](https://jsfiddle.net/developit/qqan9pdo/)
