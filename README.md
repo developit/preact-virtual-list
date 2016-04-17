@@ -33,7 +33,7 @@ Useful for those super important business applications where one must show all m
     data={['a', 'b', 'c']}
     renderRow={ row => <div>{row}</div> }
     rowHeight={22},
-	overscanCount={10}
+    overscanCount={10}
     sync
 />
 ```

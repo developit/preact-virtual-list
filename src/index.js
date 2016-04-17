@@ -44,7 +44,6 @@ export default class VirtualList extends Component {
 	}
 
 	render({ data, rowHeight, renderRow, overscanCount = 10, ...props }, { offset=0, height=0 }) {
-
 		// first visible row index
 		let start = (offset / rowHeight)|0;
 
