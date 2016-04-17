@@ -47,15 +47,18 @@ export default class VirtualList extends Component {
 		// first visible row index
 		let start = (offset / rowHeight)|0;
 
-		// last visible row index
-		let end = start + 1 + (height / rowHeight)|0;
+		// actual number of visible rows (without overscan)
+		let visibleRowCount = (height / rowHeight)|0;
 
 		// Overscan: render blocks of rows modulo an overscan row count
 		// This dramatically reduces DOM writes during scrolling
 		if (overscanCount) {
 			start = Math.max(0, start - (start % overscanCount));
-			end = end + overscanCount - ((end - 1) % overscanCount);
+			visibleRowCount += overscanCount;
 		}
+
+		// last visible + overscan row index
+		let end = start + 1 + visibleRowCount;
 
 		// data slice currently in viewport plus overscan items
 		let selection = data.slice(start, end);
