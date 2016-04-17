@@ -8,6 +8,7 @@ const STYLE_CONTENT = 'position:absolute; top:0; left:0; height:100%; width:100%
  *	@param {Array<*>} data         List of data items
  *	@param {Function} renderRow    Renders a single row
  *	@param {Number} rowHeight      Static height of a row
+ *	@param {Number} overscanCount  Amount of rows to render above and below list
  *	@param {Boolean} [sync=false]  true forces synchronous rendering
  *	@example
  *		<VirtualList
@@ -42,15 +43,16 @@ export default class VirtualList extends Component {
 		removeEventListener('resize', this.resize);
 	}
 
-	render({ data, rowHeight, renderRow, ...props }, { offset=0, height=0 }) {
+	render({ data, rowHeight, renderRow, overscanCount = 10, ...props }, { offset=0, height=0 }) {
+
 		// first visible row index
 		let start = (offset / rowHeight)|0;
 
 		// last visible row index
 		let end = start + 1 + (height / rowHeight)|0;
 
-		// data slice currently in viewport
-		let selection = data.slice(start, end);
+		// data slice currently in viewport plus overscan items
+		let selection = data.slice(Math.max(0, start - overscanCount), end + overscanCount);
 
 		return (
 			<div onScroll={this.handleScroll} {...props}>
