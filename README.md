@@ -20,6 +20,7 @@ Useful for those super important business applications where one must show all m
 | **`data`** | _Array_ | List of data items |
 | **`renderRow`** | _Function_ | Renders a single row |
 | **`rowHeight`** | _Number_ | Static height of a row |
+| **`overscanCount`** | _Number_ | Amount of rows to render above and below visible area of the list `default: 10` |
 | **`sync`** | _Boolean_ | If `true`, forces synchronous rendering \* |
 
 > _**A note on synchronous rendering:** It's best to try without `sync` enabled first. If the normal async rendering behavior is fine, it's best to leave sync turned off. If you're seeing flickering, enabling sync will ensure every update gets out to the screen without dropping renders, but does so at the expense of actual framerate._
@@ -31,7 +32,8 @@ Useful for those super important business applications where one must show all m
 <VirtualList
     data={['a', 'b', 'c']}
     renderRow={ row => <div>{row}</div> }
-    rowHeight={22}
+    rowHeight={22},
+    overscanCount={10}
     sync
 />
 ```
