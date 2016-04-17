@@ -5,10 +5,13 @@
 
 A "virtual" list component that renders only visible rows of a given data set.
 
-Useful for those super important business applications where one must show all million rows.
+Useful for those super important business applications where one must show _all_ million rows.
 
+#### [Demo](https://jsfiddle.net/developit/qqan9pdo/)
+
+<a href="https://jsfiddle.net/developit/qqan9pdo/">
 <img alt="preview" src="https://i.gyazo.com/866e97be9075dd63260dbc5df30075ec.gif" width="420">
-
+</a>
 
 ---
 
