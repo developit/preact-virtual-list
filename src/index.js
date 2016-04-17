@@ -43,15 +43,20 @@ export default class VirtualList extends Component {
 		removeEventListener('resize', this.resize);
 	}
 
-	render({ data, rowHeight, renderRow, overscanCount = 10, ...props }, { offset=0, height=0 }) {
+	render({ data, rowHeight, renderRow, overscanCount=10, sync, ...props }, { offset=0, height=0 }) {
 		// first visible row index
 		let start = (offset / rowHeight)|0;
 
 		// last visible row index
 		let end = start + 1 + (height / rowHeight)|0;
 
+		if (!sync && overscanCount) {
+			start = Math.max(0, start - overscanCount);
+			end += overscanCount;
+		}
+
 		// data slice currently in viewport plus overscan items
-		let selection = data.slice(Math.max(0, start - overscanCount), end + overscanCount);
+		let selection = data.slice(start, end);
 
 		return (
 			<div onScroll={this.handleScroll} {...props}>
