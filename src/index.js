@@ -50,9 +50,11 @@ export default class VirtualList extends Component {
 		// last visible row index
 		let end = start + 1 + (height / rowHeight)|0;
 
-		if (!sync && overscanCount) {
-			start = Math.max(0, start - overscanCount);
-			end += overscanCount;
+		// Overscan: render blocks of rows modulo an overscan row count
+		// This dramatically reduces DOM writes during scrolling
+		if (overscanCount) {
+			start = Math.max(0, start - (start % overscanCount));
+			end = end + overscanCount - ((end - 1) % overscanCount);
 		}
 
 		// data slice currently in viewport plus overscan items

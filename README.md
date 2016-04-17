@@ -13,20 +13,9 @@ Useful for those super important business applications where one must show all m
 ---
 
 
-## Props
-
-| Prop                | Type       | Description         |
-|---------------------|------------|---------------------|
-| **`data`**          | _Array_    | List of data items
-| **`renderRow`**     | _Function_ | Renders a single row
-| **`rowHeight`**     | _Number_   | Static height of a row
-| **`overscanCount`** | _Number_   | Number of extra rows to render above and below visible list.<br> Defaults to 10. Disabled in `sync` mode.
-| **`sync`**          | _Boolean_  | If `true`, forces synchronous rendering \*
-
-> _**A note on synchronous rendering:** It's best to try without `sync` enabled first. If the normal async rendering behavior is fine, it's best to leave sync turned off. If you're seeing flickering, enabling sync will ensure every update gets out to the screen without dropping renders, but does so at the expense of actual framerate._
-
-
 ## Usage Example
+
+Provide the list of items as `data`, an item renderer as `renderRow`, and the height of a single row as `rowHeight`. Everything else is optional.
 
 ```js
 <VirtualList
@@ -41,6 +30,28 @@ Useful for those super important business applications where one must show all m
 
 ---
 
+
+## Props
+
+| Prop                | Type       | Description         |
+|---------------------|------------|---------------------|
+| **`data`**          | _Array_    | List of data items
+| **`renderRow`**     | _Function_ | Renders a single row
+| **`rowHeight`**     | _Number_   | Static height of a row
+| **`sync`**          | _Boolean_  | If `true`, forces synchronous rendering \*
+| **`overscanCount`** | _Number_   | Number of extra rows to render above and below visible list. Defaults to 10. \*\*
+
+_**\* About synchronous rendering:** It's best to try without `sync` enabled first. If the normal async rendering behavior is fine, it's best to leave sync turned off. If you're seeing flickering, enabling sync will ensure every update gets out to the screen without dropping renders, but does so at the expense of actual framerate._
+
+
+_**\*\* Why overscan?** Rendering normalized blocks of rows reduces the number of DOM interactions by grouping all row renders into a single atomic update._
+
+| _Without_ Overscan | _With_ Overscan |
+|--------------------|-----------------|
+| <img src="https://i.gyazo.com/e192bf1ca835fbe6ad803f7b6270e424.gif" height="150"> | <img src="https://i.gyazo.com/478440d1f06fe543e69fff8b88ce7963.gif" height="150"> |
+
+
+---
 
 ## Simple Example
 
