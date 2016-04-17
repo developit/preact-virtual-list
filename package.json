@@ -1,7 +1,7 @@
 {
   "name": "preact-virtual-list",
   "amdName": "VirtualList",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Virtual list, renders only visible items.",
   "main": "dist/preact-virtual-list.js",
   "minified:main": "dist/preact-virtual-list.min.js",
