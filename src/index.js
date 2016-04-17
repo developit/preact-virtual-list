@@ -8,7 +8,7 @@ const STYLE_CONTENT = 'position:absolute; top:0; left:0; height:100%; width:100%
  *	@param {Array<*>} data         List of data items
  *	@param {Function} renderRow    Renders a single row
  *	@param {Number} rowHeight      Static height of a row
- *	@param {Number} overscanCount  Amount of rows to render above and below list
+ *	@param {Number} overscanCount  Amount of rows to render above and below visible area of the list
  *	@param {Boolean} [sync=false]  true forces synchronous rendering
  *	@example
  *		<VirtualList
