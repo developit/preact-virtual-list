@@ -1,5 +1,7 @@
 # `<VirtualList />` <sub>_for [Preact]_</sub>
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/developit/preact-virtual-list.svg)](https://greenkeeper.io/)
+
 [![NPM](https://img.shields.io/npm/v/preact-virtual-list.svg)](https://www.npmjs.com/package/preact-virtual-list)
 [![Travis](https://travis-ci.org/developit/preact-virtual-list.svg?branch=master)](https://travis-ci.org/developit/preact-virtual-list)
 
