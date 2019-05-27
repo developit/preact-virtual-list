@@ -1,8 +1,20 @@
 import { h, Component } from 'preact';
 
-const STYLE_INNER = 'position:relative; overflow:hidden; width:100%; min-height:100%;';
+const STYLE_INNER = {
+	position: "relative",
+	overflow: "hidden",
+	width: "100%",
+	"min-height": "100%"
+  };  
 
-const STYLE_CONTENT = 'position:absolute; top:0; left:0; height:100%; width:100%; overflow:visible;';
+const STYLE_CONTENT = {
+	position: "absolute",
+	top: "0",
+	left: "0",
+	height: "100%",
+	width: "100%",
+	overflow: "visible"
+  };  
 
 /** Virtual list, renders only visible items.
  *	@param {Array<*>} data         List of data items
@@ -65,12 +77,12 @@ export default class VirtualList extends Component {
 
 		return (
 			<div onScroll={this.handleScroll} {...props}>
-				<div style={`${STYLE_INNER} height:${data.length*rowHeight}px;`}>
-					<div style={`${STYLE_CONTENT} top:${start*rowHeight}px;`}>
-						{ selection.map(renderRow) }
-					</div>
+			  <div style={{ ...STYLE_INNER, height: data.length * rowHeight }}>
+				<div style={{ ...STYLE_CONTENT, top: start * rowHeight }}>
+				  {selection.map(renderRow)}
 				</div>
+			  </div>
 			</div>
-		);
+		  );
 	}
 }
