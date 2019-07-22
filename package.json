@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "prepare": "npm t",
     "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
-    "test": "npm run build && bundlesize"
+    "test": "jest && bundlesize"
   },
   "eslintconfig": {
     "extends": "eslint-config-developit",
@@ -38,8 +38,17 @@
         {
           "pragma": "h"
         }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
       ]
     ]
+  },
+  "jest": {
+    "testURL": "http://localhost"
   },
   "files": [
     "src"
@@ -63,13 +72,17 @@
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "7.5.5",
+    "babel-jest": "^24.8.0",
     "bundlesize": "^0.17.1",
     "eslint": "^4.16.0",
     "eslint-config-developit": "^1.1.1",
     "gzip-size-cli": "^2.1.0",
+    "html-looks-like": "^1.0.3",
+    "jest": "^24.3.1",
     "microbundle": "^0.11.0",
     "npm-run-all": "^4.1.2",
     "preact": "8.4.2",
+    "preact-render-to-string": "^4.1.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "strip-json-comments-cli": "^1.0.1"
