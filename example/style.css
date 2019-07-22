@@ -1,0 +1,30 @@
+html, body {
+	font: 14px/1.21 'Helvetica Neue', arial, sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	text-align: center;
+}
+
+.list {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	height: 60%;
+	width: 60%;
+	border: 1px solid #CCC;
+	background: #FFF;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.row {
+	position: relative;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 20px;
+	box-shadow: inset 0 -1px 0 #DDD;
+	overflow: hidden;
+}
