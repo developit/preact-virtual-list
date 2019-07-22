@@ -15,7 +15,7 @@
     "prepare": "npm t",
     "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
     "test": "JEST_PUPPETEER_CONFIG=test/jest-puppeteer.config.js jest --runInBand && bundlesize",
-    "example": "preact watch --src=./example"
+    "example": "npx preact watch --src=./example"
   },
   "eslintconfig": {
     "extends": "eslint-config-developit",
