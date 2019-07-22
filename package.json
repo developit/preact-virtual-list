@@ -14,7 +14,8 @@
     "lint": "eslint src",
     "prepare": "npm t",
     "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
-    "test": "jest && bundlesize"
+    "test": "JEST_PUPPETEER_CONFIG=test/jest-puppeteer.config.js jest --runInBand && bundlesize",
+    "example": "preact watch --src=./example"
   },
   "eslintconfig": {
     "extends": "eslint-config-developit",
@@ -29,6 +30,13 @@
     }
   ],
   "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-runtime"
+        ]
+      }
+    },
     "presets": [
       "@babel/preset-env"
     ],
@@ -48,7 +56,7 @@
     ]
   },
   "jest": {
-    "testURL": "http://localhost"
+    "preset": "jest-puppeteer"
   },
   "files": [
     "src"
@@ -71,6 +79,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "7.5.5",
     "babel-jest": "^24.8.0",
     "bundlesize": "^0.17.1",
@@ -79,10 +88,12 @@
     "gzip-size-cli": "^2.1.0",
     "html-looks-like": "^1.0.3",
     "jest": "^24.3.1",
+    "jest-puppeteer": "^4.3.0",
     "microbundle": "^0.11.0",
     "npm-run-all": "^4.1.2",
     "preact": "8.4.2",
     "preact-render-to-string": "^4.1.0",
+    "puppeteer": "^1.18.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "strip-json-comments-cli": "^1.0.1"
